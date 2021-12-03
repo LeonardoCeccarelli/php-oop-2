@@ -21,9 +21,19 @@ class User
         $this->name = $value;
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
     public function setLastName($value)
     {
         $this->lastName = $value;
+    }
+
+    public function getLastName()
+    {
+        return $this->lastName;
     }
 
     public function setAge($num)
@@ -31,8 +41,18 @@ class User
         $this->age = $num;
     }
 
+    public function getAge()
+    {
+        return $this->age;
+    }
+
     public function setCart($array)
     {
         $this->cart = $array;
+    }
+
+    public function getCartLength()
+    {
+        return count($this->cart);
     }
 }

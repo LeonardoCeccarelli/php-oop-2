@@ -26,4 +26,16 @@ class Product
     {
         $this->description = $value;
     }
+
+    public function getSet($value)
+    {
+        if (isset($value)) {
+            return $value;
+        }
+    }
+
+    // static function pushItemOnCart(int $idItem, array $cartArray)
+    // {
+    //     $cartArray[] = $idItem;
+    // }
 }

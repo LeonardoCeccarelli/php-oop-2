@@ -5,6 +5,10 @@ require_once "classes/User.php";
 require_once "classes/UserPrime.php";
 require_once "classes/ProductType.php";
 
+// Product::pushItemOnCart(2, $listUsers[2]["cart"]);
+
+// $listUsers[2]["cart"][] = "ciao";
+
 ?>
 
 <!DOCTYPE html>
@@ -28,15 +32,21 @@ require_once "classes/ProductType.php";
         }
         echo "<pre>";
         var_dump($user);
+        echo $user->getName();
+        echo $user->getCartLength();
         echo "</pre>";
     }
 
-    foreach ($listProducts as $product) {
-        $product = new ProductType($product["title"], $product["price"], $product["description"], $product["type"]);
-        echo "<pre>";
-        var_dump($product);
-        echo "</pre>";
-    }
+    // foreach ($listProducts as $product) {
+    //     $product = new ProductType($product["title"], $product["price"], $product["description"], $product["type"]);
+    //     echo "<pre>";
+    //     var_dump($product);
+    //     echo "</pre>";
+    // }
+
+    // echo "<pre>";
+    // var_dump($listUsers);
+    // echo "</pre>";
 
     ?>
 </body>
