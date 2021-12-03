@@ -3,7 +3,7 @@ require_once "data/listUsers.php";
 require_once "data/listProducts.php";
 require_once "classes/User.php";
 require_once "classes/UserPrime.php";
-require_once "classes/Product.php";
+require_once "classes/ProductType.php";
 
 ?>
 
@@ -32,7 +32,7 @@ require_once "classes/Product.php";
     }
 
     foreach ($listProducts as $product) {
-        $product = new Product($product["title"], $product["price"], $product["description"]);
+        $product = new ProductType($product["title"], $product["price"], $product["description"], $product["type"]);
         echo "<pre>";
         var_dump($product);
         echo "</pre>";
