@@ -9,7 +9,8 @@ $listProducts = [
             "music" => false,
             "food" => false,
             "home" => false,
-        ]
+        ],
+        "id" => 0
     ],
     [
         "title" => "Samsung Galaxy S10",
@@ -20,7 +21,8 @@ $listProducts = [
             "music" => false,
             "food" => false,
             "home" => false,
-        ]
+        ],
+        "id" => 1
     ],
     [
         "title" => "Yamaha Piano U3",
@@ -31,7 +33,8 @@ $listProducts = [
             "music" => true,
             "food" => false,
             "home" => false,
-        ]
+        ],
+        "id" => 2
     ],
     [
         "title" => "Fender Stratocaster",
@@ -42,6 +45,7 @@ $listProducts = [
             "music" => true,
             "food" => false,
             "home" => false,
-        ]
+        ],
+        "id" => 3
     ],
 ];

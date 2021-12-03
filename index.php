@@ -22,9 +22,9 @@ require_once "classes/ProductType.php";
 
     foreach ($listUsers as $user) {
         if ($user["prime"]) {
-            $user = new UserPrime($user["name"], $user["lastName"], $user["age"]);
+            $user = new UserPrime($user["name"], $user["lastName"], $user["age"], $user["cart"]);
         } else {
-            $user = new User($user["name"], $user["lastName"], $user["age"]);
+            $user = new User($user["name"], $user["lastName"], $user["age"], $user["cart"]);
         }
         echo "<pre>";
         var_dump($user);
