@@ -5,12 +5,12 @@ require_once "classes/User.php";
 require_once "classes/UserPrime.php";
 require_once "classes/ProductType.php";
 
-function pushItemOnCart(int $item, array $array)
+function pushItemOnCart(int $item, array &$array)
 {
     $array["cart"][] = $item;
 }
 
-pushItemOnCart(1, $listUsers[2]);
+pushItemOnCart(1, $listUsers[1]);
 
 // $listUsers[2]["cart"][] = 1;
 
@@ -50,6 +50,12 @@ pushItemOnCart(1, $listUsers[2]);
 
     <?php
     }
+    // $userProva = new User($listUsers[0]["name"], $listUsers[0]["lastName"], $listUsers[0]["age"], $listUsers[0]["cart"]);
+
+    // var_dump($userProva);
+
+    // $userProva->pushItemOnCart("ciao");
+    // var_dump($userProva);
     ?>
 </body>
 

@@ -59,6 +59,11 @@ class User
         return count($this->cart);
     }
 
+    public function pushItemOnCart($item)
+    {
+        $this->cart[] = $item;
+    }
+
     public function getCartItems()
     {
         return $this->cart;
