@@ -53,6 +53,14 @@ class User
 
     public function getCartLength()
     {
+        if (count($this->cart) === 0) {
+            return "Vuoto";
+        }
         return count($this->cart);
+    }
+
+    public function getCartItems()
+    {
+        return $this->cart;
     }
 }

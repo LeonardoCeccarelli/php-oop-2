@@ -5,9 +5,14 @@ require_once "classes/User.php";
 require_once "classes/UserPrime.php";
 require_once "classes/ProductType.php";
 
-// Product::pushItemOnCart(2, $listUsers[2]["cart"]);
+function pushItemOnCart(int $item, array $array)
+{
+    $array["cart"][] = $item;
+}
 
-// $listUsers[2]["cart"][] = "ciao";
+pushItemOnCart(1, $listUsers[2]);
+
+// $listUsers[2]["cart"][] = 1;
 
 ?>
 
@@ -30,24 +35,21 @@ require_once "classes/ProductType.php";
         } else {
             $user = new User($user["name"], $user["lastName"], $user["age"], $user["cart"]);
         }
-        echo "<pre>";
-        var_dump($user);
-        echo $user->getName();
-        echo $user->getCartLength();
-        echo "</pre>";
+    ?>
+
+        <h2><?php echo $user->getName() . " " . $user->getLastName() ?></h2>
+        <p>Anni: <?php echo $user->getAge() ?></p>
+        <p>Carrello: <?php echo $user->getCartLength() ?></p>
+        <ul>
+            <?php
+            foreach ($user->getCartItems() as $item) {
+                echo "<li>" . $listProducts[$item]["title"] . "</li>";
+            }
+            ?>
+        </ul>
+
+    <?php
     }
-
-    // foreach ($listProducts as $product) {
-    //     $product = new ProductType($product["title"], $product["price"], $product["description"], $product["type"]);
-    //     echo "<pre>";
-    //     var_dump($product);
-    //     echo "</pre>";
-    // }
-
-    // echo "<pre>";
-    // var_dump($listUsers);
-    // echo "</pre>";
-
     ?>
 </body>
 
