@@ -1,4 +1,11 @@
-<?php ?>
+<?php
+require_once "data/listUsers.php";
+require_once "data/listProducts.php";
+require_once "classes/User.php";
+require_once "classes/UserPrime.php";
+require_once "classes/Product.php";
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +18,27 @@
 </head>
 
 <body>
+    <?php
 
+    foreach ($listUsers as $user) {
+        if ($user["prime"]) {
+            $user = new UserPrime($user["name"], $user["lastName"], $user["age"]);
+        } else {
+            $user = new User($user["name"], $user["lastName"], $user["age"]);
+        }
+        echo "<pre>";
+        var_dump($user);
+        echo "</pre>";
+    }
+
+    foreach ($listProducts as $product) {
+        $product = new Product($product["title"], $product["price"], $product["description"]);
+        echo "<pre>";
+        var_dump($product);
+        echo "</pre>";
+    }
+
+    ?>
 </body>
 
 </html>
