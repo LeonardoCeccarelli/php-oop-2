@@ -91,6 +91,7 @@ $listUsersCopy[1]->pushItemOnCart($listProductsCopy[0]);
             }
             ?>
         </ul>
+        <hr><br><br>
 
     <?php
     }
