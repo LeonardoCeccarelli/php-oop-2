@@ -1,15 +1,18 @@
 <?php
+include_once __DIR__ . "/../traits/FormatFloatNum.php";
 class Product
 {
     protected $title;
     protected $price;
     protected $description;
 
-    function __construct(string $_title, float $_price, string $_description)
+    use FormatFloatNum;
+
+    function __construct(array $_data)
     {
-        $this->setTitle($_title);
-        $this->setPrice($_price);
-        $this->setDescription($_description);
+        $this->setTitle($_data["title"]);
+        $this->setPrice($_data["price"]);
+        $this->setDescription($_data["description"]);
     }
 
     public function setTitle($value)
@@ -19,7 +22,7 @@ class Product
 
     public function setPrice($value)
     {
-        $this->price = $value;
+        $this->price = $this->formatFloatNum($value);
     }
 
     public function setDescription($value)
@@ -33,9 +36,4 @@ class Product
             return $value;
         }
     }
-
-    // static function pushItemOnCart(int $idItem, array $cartArray)
-    // {
-    //     $cartArray[] = $idItem;
-    // }
 }

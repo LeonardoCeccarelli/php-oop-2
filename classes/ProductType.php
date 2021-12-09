@@ -5,12 +5,10 @@ class ProductType extends Product
 {
     protected $type = [];
 
-    function __construct(string $_title, float $_price, string $_description, array $_type)
+    function __construct(array $_data)
     {
-        $this->setTitle($_title);
-        $this->setPrice($_price);
-        $this->setDescription($_description);
-        $this->setType($_type);
+        parent::__construct($_data);
+        $this->setType($_data["type"]);
     }
 
     public function setType($array)

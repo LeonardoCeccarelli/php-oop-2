@@ -15,6 +15,7 @@ require_once "classes/ProductType.php";
 // $listUsers[2]["cart"][] = 1;
 
 $listUsersCopy = [];
+$listProductsCopy = [];
 
 foreach ($listUsers as $user) {
     try {
@@ -30,6 +31,17 @@ foreach ($listUsers as $user) {
         echo $e->getMessage() . "<br>";
     }
 }
+
+foreach ($listProducts as $product) {
+    $product = new ProductType($product);
+    $listProductsCopy[] = $product;
+}
+
+echo "<pre>";
+var_dump($listProductsCopy);
+echo "</pre>";
+
+$listUsersCopy[0]->pushItemOnCart("ciaooo");
 
 // echo "<pre>";
 // var_dump($listUsersCopy);
@@ -72,7 +84,7 @@ foreach ($listUsers as $user) {
         <ul>
             <?php
             foreach ($user->getCartItems() as $item) {
-                echo "<li>" . $listProducts[$item]["title"] . "</li>";
+                echo "<li>" . $item . "</li>";
             }
             ?>
         </ul>
