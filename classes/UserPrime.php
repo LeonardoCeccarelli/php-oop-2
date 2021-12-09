@@ -5,13 +5,10 @@ class UserPrime extends User
 {
     protected $scount = 25;
 
-    function __construct(string $_name, string $_lastName, int $_age, array $_cart)
+    function __construct(array $_data)
     {
-        $this->setName($_name);
-        $this->setLastName($_lastName);
-        $this->setAge($_age);
+        parent::__construct($_data);
         $this->setScountForAge($this->age);
-        $this->setCart($_cart);
     }
 
     public function setScountForAge($num)

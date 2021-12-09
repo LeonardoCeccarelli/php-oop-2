@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/../traits/Cart.php";
 
 class User
 {
@@ -6,14 +7,16 @@ class User
     protected $lastName;
     protected $age;
     protected $metodPayment;
-    protected $cart;
+    protected $email;
 
-    function __construct(string $_name, string $_lastName, int $_age, array $_cart)
+    use Cart;
+
+    function __construct(array $_data)
     {
-        $this->setName($_name);
-        $this->setLastName($_lastName);
-        $this->setAge($_age);
-        $this->setCart($_cart);
+        $this->setName($_data["name"]);
+        $this->setLastName($_data["lastName"]);
+        $this->setAge($_data["age"]);
+        $this->setEmail($_data["email"]);
     }
 
     public function setName($value)
@@ -46,26 +49,31 @@ class User
         return $this->age;
     }
 
-    public function setCart($array)
+    public function setEmail($value)
     {
-        $this->cart = $array;
+        $this->email = $value;
     }
 
-    public function getCartLength()
+    public function getEmail()
     {
-        if (count($this->cart) === 0) {
-            return "Vuoto";
-        }
-        return count($this->cart);
+        return $this->email;
     }
 
-    public function pushItemOnCart($item)
-    {
-        $this->cart[] = $item;
-    }
+    // public function getCartLength()
+    // {
+    //     if (count($this->cart) === 0) {
+    //         return "Vuoto";
+    //     }
+    //     return count($this->cart);
+    // }
 
-    public function getCartItems()
-    {
-        return $this->cart;
-    }
+    // public function pushItemOnCart($item)
+    // {
+    //     $this->cart[] = $item;
+    // }
+
+    // public function getCartItems()
+    // {
+    //     return $this->cart;
+    // }
 }

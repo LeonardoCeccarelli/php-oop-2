@@ -5,14 +5,29 @@ require_once "classes/User.php";
 require_once "classes/UserPrime.php";
 require_once "classes/ProductType.php";
 
-function pushItemOnCart(int $item, array &$array)
-{
-    $array["cart"][] = $item;
-}
+// function pushItemOnCart(int $item, array &$array)
+// {
+//     $array["cart"][] = $item;
+// }
 
-pushItemOnCart(1, $listUsers[1]);
+// pushItemOnCart(1, $listUsers[1]);
 
 // $listUsers[2]["cart"][] = 1;
+
+$listUsersCopy = [];
+
+foreach ($listUsers as $user) {
+    if ($user["prime"]) {
+        $user = new UserPrime($user);
+    } else {
+        $user = new User($user);
+    }
+
+    $listUsersCopy[] = $user;
+}
+echo "<pre>";
+var_dump($listUsersCopy);
+echo "</pre>";
 
 ?>
 
@@ -29,27 +44,40 @@ pushItemOnCart(1, $listUsers[1]);
 <body>
     <?php
 
-    foreach ($listUsers as $user) {
-        if ($user["prime"]) {
-            $user = new UserPrime($user["name"], $user["lastName"], $user["age"], $user["cart"]);
-        } else {
-            $user = new User($user["name"], $user["lastName"], $user["age"], $user["cart"]);
-        }
+    // foreach ($listUsers as $user) {
+    //     if ($user["prime"]) {
+    //         $user = new UserPrime($user["name"], $user["lastName"], $user["age"], $user["cart"]);
+    //     } else {
+    //         $user = new User($user["name"], $user["lastName"], $user["age"], $user["cart"]);
+    //     }
     ?>
 
-        <h2><?php echo $user->getName() . " " . $user->getLastName() ?></h2>
-        <p>Anni: <?php echo $user->getAge() ?></p>
-        <p>Carrello: <?php echo $user->getCartLength() ?></p>
+    <!-- <h2>
+            <?php
+            // echo $user->getName() . " " . $user->getLastName() 
+            ?>
+        </h2>
+        <p>Anni: 
+            <?php
+            // echo $user->getAge() 
+            ?>
+        </p>
+        <p>Carrello:
+            <?php
+            // echo $user->getCartLength()
+            // 
+            ?>
+        </p>
         <ul>
             <?php
-            foreach ($user->getCartItems() as $item) {
-                echo "<li>" . $listProducts[$item]["title"] . "</li>";
-            }
+            // foreach ($user->getCartItems() as $item) {
+            //     echo "<li>" . $listProducts[$item]["title"] . "</li>";
+            // }
             ?>
-        </ul>
+        </ul> -->
 
     <?php
-    }
+    // }
     // $userProva = new User($listUsers[0]["name"], $listUsers[0]["lastName"], $listUsers[0]["age"], $listUsers[0]["cart"]);
 
     // var_dump($userProva);

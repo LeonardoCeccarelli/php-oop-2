@@ -4,29 +4,29 @@ $listUsers = [
     [
         "name" => "Mario",
         "lastName" => "Rossi",
+        "email" => "mariorossi@gmail.com",
         "age" => 45,
         "prime" => true,
-        "cart" => [],
     ],
     [
         "name" => "Giuseppe",
         "lastName" => "Verdi",
+        "email" => "giuseppeverdi@gmail.com",
         "age" => 68,
         "prime" => false,
-        "cart" => [],
     ],
     [
         "name" => "Giulia",
         "lastName" => "Bianchi",
+        "email" => "giuliabianchi@gmail.com",
         "age" => 30,
         "prime" => false,
-        "cart" => [],
     ],
     [
         "name" => "Chiara",
         "lastName" => "Ferrari",
+        "email" => "chiaraferrari@gmail.com",
         "age" => 59,
         "prime" => true,
-        "cart" => [],
     ],
 ];
