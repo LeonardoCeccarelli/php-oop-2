@@ -4,8 +4,8 @@ $listUsers = [
     [
         "name" => "Mario",
         "lastName" => "Rossi",
-        "email" => "mariorossi",
-        "age" => 45,
+        "email" => "mariorossi@gmail.com",
+        "age" => 20,
         "prime" => true,
     ],
     [

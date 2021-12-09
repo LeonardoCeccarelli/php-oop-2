@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/../traits/Cart.php";
 require_once __DIR__ . "/../exception/EmailException.php";
+require_once __DIR__ . "/../exception/AgeException.php";
 
 class User
 {
@@ -42,6 +43,9 @@ class User
 
     public function setAge($num)
     {
+        if (!is_numeric($num) || $num === floatval($num)) {
+            throw new AgeException;
+        }
         $this->age = $num;
     }
 

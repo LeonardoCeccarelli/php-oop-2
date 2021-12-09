@@ -27,7 +27,7 @@ foreach ($listUsers as $user) {
         $listUsersCopy[] = $user;
     } catch (Exception $e) {
         echo "Non è stato possibile generare l'istanza per l'utente " . $user["name"] . " " . $user["lastName"] . " a causa del seguente errore: ";
-        echo $e->getMessage();
+        echo $e->getMessage() . "<br>";
     }
 }
 
