@@ -20,9 +20,19 @@ class Product
         $this->title = $value;
     }
 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
     public function setPrice($value)
     {
         $this->price = $this->formatFloatNum($value);
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 
     public function setDescription($value)
@@ -30,10 +40,8 @@ class Product
         $this->description = $value;
     }
 
-    public function getSet($value)
+    public function getDescription()
     {
-        if (isset($value)) {
-            return $value;
-        }
+        return $this->description;
     }
 }

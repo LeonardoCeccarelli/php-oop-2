@@ -37,15 +37,12 @@ foreach ($listProducts as $product) {
     $listProductsCopy[] = $product;
 }
 
-echo "<pre>";
-var_dump($listProductsCopy);
-echo "</pre>";
-
-$listUsersCopy[0]->pushItemOnCart("ciaooo");
-
-// echo "<pre>";
-// var_dump($listUsersCopy);
-// echo "</pre>";
+// Aggiunta prodotti nei carrelli dei vari utenti
+$listUsersCopy[0]->pushItemOnCart($listProductsCopy[0]);
+$listUsersCopy[2]->pushItemOnCart($listProductsCopy[3]);
+$listUsersCopy[1]->pushItemOnCart($listProductsCopy[2]);
+$listUsersCopy[3]->pushItemOnCart($listProductsCopy[1]);
+$listUsersCopy[1]->pushItemOnCart($listProductsCopy[0]);
 ?>
 
 <!DOCTYPE html>
@@ -84,19 +81,19 @@ $listUsersCopy[0]->pushItemOnCart("ciaooo");
         <ul>
             <?php
             foreach ($user->getCartItems() as $item) {
-                echo "<li>" . $item . "</li>";
+            ?>
+                <li>
+                    <h4><?php echo $item->getTitle() ?></h4>
+                    <small>€ <?php echo $item->getPrice() ?></small>
+                    <p><em><?php echo $item->getDescription() ?></em></p>
+                </li>
+            <?php
             }
             ?>
         </ul>
 
     <?php
     }
-    // $userProva = new User($listUsers[0]["name"], $listUsers[0]["lastName"], $listUsers[0]["age"], $listUsers[0]["cart"]);
-
-    // var_dump($userProva);
-
-    // $userProva->pushItemOnCart("ciao");
-    // var_dump($userProva);
     ?>
 </body>
 
