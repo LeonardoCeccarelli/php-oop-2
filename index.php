@@ -38,11 +38,11 @@ foreach ($listProducts as $product) {
 }
 
 // Aggiunta prodotti nei carrelli dei vari utenti
-$listUsersCopy[0]->pushItemOnCart($listProductsCopy[0]);
-$listUsersCopy[2]->pushItemOnCart($listProductsCopy[3]);
-$listUsersCopy[1]->pushItemOnCart($listProductsCopy[2]);
-$listUsersCopy[3]->pushItemOnCart($listProductsCopy[1]);
-$listUsersCopy[1]->pushItemOnCart($listProductsCopy[0]);
+// $listUsersCopy[0]->pushItemOnCart($listProductsCopy[0]);
+// $listUsersCopy[2]->pushItemOnCart($listProductsCopy[3]);
+// $listUsersCopy[1]->pushItemOnCart($listProductsCopy[2]);
+// $listUsersCopy[3]->pushItemOnCart($listProductsCopy[1]);
+// $listUsersCopy[1]->pushItemOnCart($listProductsCopy[0]);
 ?>
 
 <!DOCTYPE html>
