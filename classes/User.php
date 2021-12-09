@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/../traits/Cart.php";
+require_once __DIR__ . "/../exception/EmailException.php";
 
 class User
 {
@@ -51,6 +52,10 @@ class User
 
     public function setEmail($value)
     {
+        if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            throw new EmailException;
+        }
+
         $this->email = $value;
     }
 
@@ -58,22 +63,4 @@ class User
     {
         return $this->email;
     }
-
-    // public function getCartLength()
-    // {
-    //     if (count($this->cart) === 0) {
-    //         return "Vuoto";
-    //     }
-    //     return count($this->cart);
-    // }
-
-    // public function pushItemOnCart($item)
-    // {
-    //     $this->cart[] = $item;
-    // }
-
-    // public function getCartItems()
-    // {
-    //     return $this->cart;
-    // }
 }

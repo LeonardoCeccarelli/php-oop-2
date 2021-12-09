@@ -17,18 +17,23 @@ require_once "classes/ProductType.php";
 $listUsersCopy = [];
 
 foreach ($listUsers as $user) {
-    if ($user["prime"]) {
-        $user = new UserPrime($user);
-    } else {
-        $user = new User($user);
+    try {
+        if ($user["prime"]) {
+            $user = new UserPrime($user);
+        } else {
+            $user = new User($user);
+        }
+
+        $listUsersCopy[] = $user;
+    } catch (Exception $e) {
+        echo "Non è stato possibile generare l'istanza per l'utente " . $user["name"] . " " . $user["lastName"] . " a causa del seguente errore: ";
+        echo $e->getMessage();
     }
-
-    $listUsersCopy[] = $user;
 }
-echo "<pre>";
-var_dump($listUsersCopy);
-echo "</pre>";
 
+// echo "<pre>";
+// var_dump($listUsersCopy);
+// echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -43,41 +48,37 @@ echo "</pre>";
 
 <body>
     <?php
+    foreach ($listUsersCopy as $user) {
 
-    // foreach ($listUsers as $user) {
-    //     if ($user["prime"]) {
-    //         $user = new UserPrime($user["name"], $user["lastName"], $user["age"], $user["cart"]);
-    //     } else {
-    //         $user = new User($user["name"], $user["lastName"], $user["age"], $user["cart"]);
-    //     }
     ?>
 
-    <!-- <h2>
+        <h2>
             <?php
-            // echo $user->getName() . " " . $user->getLastName() 
+            echo $user->getName() . " " . $user->getLastName()
             ?>
         </h2>
-        <p>Anni: 
+        <p><?php echo $user->getEmail() ?></p>
+        <p>Anni:
             <?php
-            // echo $user->getAge() 
+            echo $user->getAge()
             ?>
         </p>
         <p>Carrello:
             <?php
-            // echo $user->getCartLength()
-            // 
+            echo $user->getCartLength()
+
             ?>
         </p>
         <ul>
             <?php
-            // foreach ($user->getCartItems() as $item) {
-            //     echo "<li>" . $listProducts[$item]["title"] . "</li>";
-            // }
+            foreach ($user->getCartItems() as $item) {
+                echo "<li>" . $listProducts[$item]["title"] . "</li>";
+            }
             ?>
-        </ul> -->
+        </ul>
 
     <?php
-    // }
+    }
     // $userProva = new User($listUsers[0]["name"], $listUsers[0]["lastName"], $listUsers[0]["age"], $listUsers[0]["cart"]);
 
     // var_dump($userProva);
